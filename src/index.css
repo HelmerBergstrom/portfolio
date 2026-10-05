@@ -44,7 +44,7 @@ a {
 }
 
 main {
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
 }
@@ -85,6 +85,16 @@ main {
 /* Sections */
 .hero {
   padding: 6rem 0 4rem;
+}
+
+.hero-photo {
+  display: block;
+  width: 9rem;
+  height: 9rem;
+  margin-bottom: 1.5rem;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--border);
 }
 
 .hero h1 {
@@ -165,8 +175,8 @@ main {
 /* Project cards */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 460px), 1fr));
+  gap: 1.5rem;
 }
 
 .card {
@@ -176,6 +186,43 @@ main {
   border-radius: var(--radius);
   background: var(--surface);
   border: 1px solid var(--border);
+}
+
+.card-cover {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  margin: 0 0 1rem;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius) - 4px);
+  overflow: hidden;
+  background: var(--bg);
+  cursor: zoom-in;
+}
+
+.card-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  transition: transform 0.3s;
+}
+
+.card-cover:hover img {
+  transform: scale(1.03);
+}
+
+.card-count {
+  position: absolute;
+  right: 0.5rem;
+  bottom: 0.5rem;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  background: rgb(0 0 0 / 0.65);
+  color: #fff;
+  font-size: 0.8rem;
 }
 
 .card h3 {
@@ -193,6 +240,59 @@ main {
   margin-top: auto;
   padding-top: 1rem;
   font-weight: 600;
+}
+
+/* Image gallery */
+.gallery {
+  width: min(1600px, 100vw - 2rem);
+  max-width: none;
+  max-height: calc(100vh - 2rem);
+  padding: 0;
+  border: none;
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text);
+}
+
+.gallery::backdrop {
+  background: rgb(0 0 0 / 0.75);
+}
+
+.gallery-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.75rem;
+}
+
+.gallery-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+}
+
+.gallery img {
+  width: 100%;
+  max-height: calc(100vh - 8rem);
+  object-fit: contain;
+  border-radius: calc(var(--radius) - 4px);
+}
+
+.gallery button {
+  padding: 0.4rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.gallery-nav {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
 }
 
 .footer {
